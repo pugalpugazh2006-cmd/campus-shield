@@ -81,7 +81,7 @@ export class NotificationsService {
       const response = await this.messaging.sendEach(messages);
       response.responses.forEach((res, idx) => {
         if (!res.success) {
-          console.error(`Failed to send notification to ${messages[idx].token}:`, res.error);
+          console.error(`Failed to send notification to ${messages[idx]?.token}:`, res.error);
         }
       });
     } catch (error) {

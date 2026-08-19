@@ -84,6 +84,7 @@ export class DeviceTokensService {
       .limit(1)
       .get();
     if (snapshot.empty) return null;
-    return (snapshot.docs[0].data() as { token?: string }).token ?? null;
+    const doc = snapshot.docs[0];
+    return doc ? ((doc.data() as { token?: string }).token ?? null) : null;
   }
 }
