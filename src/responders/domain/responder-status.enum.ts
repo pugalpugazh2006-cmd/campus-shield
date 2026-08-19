@@ -1,0 +1,6 @@
+export enum ResponderStatus {
+  OFF_DUTY = 'OFF_DUTY',
+  AVAILABLE = 'AVAILABLE',
+  RESERVED = 'RESERVED',
+  RESPONDING = 'RESPONDING',
+}

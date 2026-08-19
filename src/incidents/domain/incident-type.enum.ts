@@ -1,0 +1,7 @@
+export enum IncidentType {
+  MEDICAL = 'MEDICAL',
+  FIRE = 'FIRE',
+  SECURITY = 'SECURITY',
+  INFRASTRUCTURE = 'INFRASTRUCTURE',
+  OTHER = 'OTHER',
+}
