@@ -1,15 +1,19 @@
 {
   "version": 2,
+  "buildCommand": "echo skip",
   "builds": [
     {
-      "src": "dist/serverless.js",
-      "use": "@vercel/node"
+      "src": "src/serverless.ts",
+      "use": "@vercel/node",
+      "config": {
+        "includeFiles": ["src/**/*"]
+      }
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "dist/serverless.js"
+      "dest": "src/serverless.ts"
     }
   ]
 }
