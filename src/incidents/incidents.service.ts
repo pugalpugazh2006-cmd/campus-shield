@@ -102,11 +102,18 @@ export class IncidentsService {
     }
     if (input.status) query = query.where('status', '==', input.status);
 
-    const snapshot = await query.orderBy('createdAt', 'desc').limit(input.limit).get();
-    return snapshot.docs.map((document) => ({
+    const snapshot = await query.get();
+    const incidents = snapshot.docs.map((document) => ({
       ...(document.data() as Omit<Incident, 'id'>),
       id: document.id,
     }));
+
+    incidents.sort((a, b) => b.createdAt.toMillis() - a.createdAt.toMillis());
+
+    if (input.limit) {
+      return incidents.slice(0, input.limit);
+    }
+    return incidents;
   }
 
   async startRoute(user: AuthenticatedUser, incidentId: string, note?: string): Promise<Incident> {
