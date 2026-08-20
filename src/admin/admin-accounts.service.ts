@@ -55,6 +55,7 @@ export class AdminAccountsService {
         campusId,
         email: input.email.trim().toLowerCase(),
         displayName: input.displayName.trim(),
+        mobileNo: input.mobileNo?.trim() ?? null,
         role: input.role,
         active: true,
         createdAt: FieldValue.serverTimestamp(),

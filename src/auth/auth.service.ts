@@ -53,6 +53,8 @@ export class AuthService {
         }
         transaction.update(profileReference, {
           displayName: input.displayName.trim(),
+          mobileNo: input.mobileNo.trim(),
+          medicalDetails: input.medicalDetails?.trim() ?? null,
           email: identity.email,
           active: true,
           updatedAt: FieldValue.serverTimestamp(),
@@ -64,6 +66,8 @@ export class AuthService {
         campusId,
         email: identity.email,
         displayName: input.displayName.trim(),
+        mobileNo: input.mobileNo.trim(),
+        medicalDetails: input.medicalDetails?.trim() ?? null,
         role: UserRole.STUDENT,
         active: true,
         createdAt: FieldValue.serverTimestamp(),

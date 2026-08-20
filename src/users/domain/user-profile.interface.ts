@@ -6,6 +6,8 @@ export interface UserProfile extends FirestoreDocument {
   campusId: string;
   email: string;
   displayName: string;
+  mobileNo?: string;
+  medicalDetails?: string;
   phoneNumber?: string;
   role: UserRole;
   active: boolean;

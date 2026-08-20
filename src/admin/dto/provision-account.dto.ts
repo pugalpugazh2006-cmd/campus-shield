@@ -28,6 +28,12 @@ export class ProvisionAccountDto {
   @Length(2, 80)
   displayName!: string;
 
+  @Transform(({ value }: { value: unknown }) => (typeof value === 'string' ? value.trim() : value))
+  @IsOptional()
+  @IsString()
+  @Length(4, 20)
+  mobileNo?: string;
+
   @IsIn([UserRole.RESPONDER, UserRole.ADMIN])
   role!: UserRole.RESPONDER | UserRole.ADMIN;
 
