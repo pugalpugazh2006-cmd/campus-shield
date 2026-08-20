@@ -13,8 +13,7 @@ export class BootstrapStudentDto {
   mobileNo!: string;
 
   @Transform(({ value }: { value: unknown }) => (typeof value === 'string' ? value.trim() : value))
-  @IsOptional()
   @IsString()
-  @Length(0, 1000)
-  medicalDetails?: string;
+  @Length(2, 1000)
+  medicalDetails!: string;
 }
